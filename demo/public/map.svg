@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 640" role="group" aria-labelledby="sample-title sample-description">
+  <title id="sample-title">React SVG Interact サンプル</title>
+  <desc id="sample-description">A・B・C の3エリア。各エリアとマーカー・経路が同じ data-id で関連付けられています。</desc>
+  <defs>
+    <pattern id="sample-grid" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#d9dfea"/></pattern>
+    <filter id="sample-shadow" x="-50%" y="-50%" width="200%" height="200%"><feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#1e293b" flood-opacity=".12"/></filter>
+    <style>
+      .sample-label { font: 600 22px 'Segoe UI', sans-serif; text-anchor: middle; fill: #334155; stroke: none; }
+      .sample-id { font: 13px ui-monospace, Consolas, monospace; text-anchor: middle; fill: #64748b; stroke: none; }
+      .sample-note { font: 12px ui-monospace, Consolas, monospace; fill: #94a3b8; }
+      .marker-number { font: 600 16px 'Segoe UI', sans-serif; fill: white; text-anchor: middle; dominant-baseline: central; pointer-events: none; }
+      .marker:focus-visible { outline: none; }
+      .marker:focus-visible .marker-disc { stroke: #f97316; stroke-width: 5; }
+    </style>
+  </defs>
+  <rect width="1000" height="640" fill="#f8fafc"/>
+  <rect width="1000" height="640" fill="url(#sample-grid)"/>
+  <text x="34" y="38" class="sample-note">viewBox="0 0 1000 640"</text>
+
+  <!-- Styles on each group apply to its rectangle; labels keep their own fill. -->
+  <g id="region-a" class="region" data-id="a" fill="#dbeafe" stroke="#93c5fd" stroke-width="2">
+    <rect x="90" y="150" width="260" height="240" rx="22"/>
+    <text x="220" y="324" class="sample-label">Area A</text>
+    <text x="220" y="351" class="sample-id">#region-a · data-id="a"</text>
+  </g>
+  <g id="region-b" class="region" data-id="b" fill="#e0e7ff" stroke="#a5b4fc" stroke-width="2">
+    <rect x="390" y="80" width="220" height="230" rx="22"/>
+    <text x="500" y="245" class="sample-label">Area B</text>
+    <text x="500" y="272" class="sample-id">#region-b · data-id="b"</text>
+  </g>
+  <g id="region-c" class="region" data-id="c" fill="#ccfbf1" stroke="#5eead4" stroke-width="2">
+    <rect x="660" y="240" width="240" height="245" rx="22"/>
+    <text x="780" y="406" class="sample-label">Area C</text>
+    <text x="780" y="434" class="sample-id">#region-c · data-id="c"</text>
+  </g>
+
+  <g fill="none" stroke="#94a3b8" stroke-width="3" stroke-dasharray="6 9" stroke-linecap="round" pointer-events="none">
+    <path id="route-a" class="route" data-id="a" d="M500 550H220V390"/>
+    <path id="route-b" class="route" data-id="b" d="M500 550V310"/>
+    <path id="route-c" class="route" data-id="c" d="M500 550H780V485"/>
+  </g>
+  <circle cx="500" cy="550" r="7" fill="#fff" stroke="#94a3b8" stroke-width="2"/>
+  <text x="500" y="584" class="sample-id">Origin</text>
+
+  <g id="marker-a" class="marker" data-id="a" transform="translate(220 260)" tabindex="0" role="button" aria-label="マーカー A を選択" color="#64748b">
+    <circle r="34" fill="transparent"/><circle class="marker-disc" r="26" fill="currentColor" stroke="#fff" stroke-width="4" filter="url(#sample-shadow)"/><text class="marker-number">A</text>
+  </g>
+  <g id="marker-b" class="marker" data-id="b" transform="translate(500 180)" tabindex="0" role="button" aria-label="マーカー B を選択" color="#64748b">
+    <circle r="34" fill="transparent"/><circle class="marker-disc" r="26" fill="currentColor" stroke="#fff" stroke-width="4" filter="url(#sample-shadow)"/><text class="marker-number">B</text>
+  </g>
+  <g id="marker-c" class="marker" data-id="c" transform="translate(780 340)" tabindex="0" role="button" aria-label="マーカー C を選択" color="#64748b">
+    <circle r="34" fill="transparent"/><circle class="marker-disc" r="26" fill="currentColor" stroke="#fff" stroke-width="4" filter="url(#sample-shadow)"/><text class="marker-number">C</text>
+  </g>
+  <text x="34" y="610" class="sample-note">.region / .route / .marker</text>
+</svg>
